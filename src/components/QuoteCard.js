@@ -18,7 +18,7 @@ const QuoteCard = ({ selectedQuote }) => (
       <IconButton
         id="tweet-quote"
         target="_blank"
-        href={encodeURI(`https://twitter.com/intent/tweet?text=${selectedQuote.quote}&hashtags=thewebdevcoach`)}
+        href={encodeURI(`https://twitter.com/intent/tweet?text=${selectedQuote.quote}`)}
       >
         <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
       </IconButton>
