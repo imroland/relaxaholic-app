@@ -6,7 +6,9 @@ been created as a proof-of-concept, while other features such as the saving of f
 and the workout generator are still in development.
 
 Link to Netlify Deployment: https://relaxaholic-185a27.netlify.app/
-Created by Wei Kit Khoong and Roland Yu Wenyang, School of Computing, National University of Singapore.
+
+Created by Wei Kit Khoong and Roland Yu Wenyang
+School of Computing, National University of Singapore.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
