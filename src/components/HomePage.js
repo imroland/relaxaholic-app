@@ -1,5 +1,4 @@
 import React from 'react';
-import { random } from 'lodash';
 import QuoteCard from './QuoteCard';
 import 'typeface-roboto';
 import { Grid, withStyles, Button, Typography, Paper, Box } from '@material-ui/core';
