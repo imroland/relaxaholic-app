@@ -10,7 +10,7 @@ const styles = {
 }
 
 const WorkoutCard = (workout) => (
-  <Grid item xs={4}>
+  <Grid xs={10} lg={4} item>
     <Card>
       <CardContent>
         <Typography>
@@ -27,6 +27,5 @@ const WorkoutCard = (workout) => (
       </CardContent>
     </Card>
   </Grid>
-
 )
 export default withStyles(styles)(WorkoutCard);

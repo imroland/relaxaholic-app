@@ -89,8 +89,9 @@ class WorkoutPage extends Component {
           </Grid>
         </Grid>
 
-        <Grid className={this.props.classes.container} id="introduction" justify="center" container>
-          <Grid xs={10} lg={8} spacing={2} container>
+        <Grid className={this.props.classes.container}
+           id="introduction" justify="center" container>
+          <Grid xs={10} lg={8} spacing={2} justify="center" container>
             {
               this.selectedWorkouts
                 ?
@@ -100,10 +101,12 @@ class WorkoutPage extends Component {
                       name={workout.workout_name}
                       firstImage={workout.image_link_1}
                       secondImage={workout.image_link_2} />
+
                   ))
                 })
                 : null
             }
+
           </Grid>
         </Grid>
       </Box>
