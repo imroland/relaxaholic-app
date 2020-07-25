@@ -11,20 +11,19 @@ const QuoteCategory = ({ handleCategoryChange }) => {
         <Select
           labelId="category-label"
           id="category-select-label"
-          defaultValue={0}
+          defaultValue={"All"}
           onChange={handleCategoryChange}
           displayEmpty
         >
-          <MenuItem value={0}>All</MenuItem>
-          <MenuItem value={1}>Advice</MenuItem>
-          <MenuItem value={2}>Humor</MenuItem>
-          <MenuItem value={3}>Inspirational</MenuItem>
-          <MenuItem value={4}>Life</MenuItem>
-          <MenuItem value={5}>Love</MenuItem>
-          <MenuItem value={6}>People</MenuItem>
-          <MenuItem value={7}>Philosophy</MenuItem>
-          <MenuItem value={8}>Religion</MenuItem>
-          <MenuItem value={9}>Wisdom</MenuItem>
+          <MenuItem value={"All"}>All</MenuItem>
+          <MenuItem value={"Advice"}>Advice</MenuItem>
+          <MenuItem value={"Humor"}>Humor</MenuItem>
+          <MenuItem value={"Inspirational"}>Inspirational</MenuItem>
+          <MenuItem value={"Life"}>Life</MenuItem>
+          <MenuItem value={"Love"}>Love</MenuItem>
+          <MenuItem value={"People"}>People</MenuItem>
+          <MenuItem value={"Philosophy"}>Philosophy</MenuItem>
+          <MenuItem value={"Wisdom"}>Wisdom</MenuItem>
         </Select>
       </FormControl>
     </Fragment>

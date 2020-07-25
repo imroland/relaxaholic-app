@@ -7,18 +7,18 @@ import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-const QuoteCard = ({ selectedQuote }) => (
+const QuoteCard = (quote) => (
   <Card>
     <CardContent>
       <Typography id="text">
-        {selectedQuote.quote} - <span id="author">{selectedQuote.author}</span>
+        {quote.description} - <span id="author">{quote.author}</span>
       </Typography>
     </CardContent>
     <CardActions>
       <IconButton
         id="tweet-quote"
         target="_blank"
-        href={encodeURI(`https://twitter.com/intent/tweet?text=${selectedQuote.quote}`)}
+        href={encodeURI(`https://twitter.com/intent/tweet?text=${quote.description} -${quote.author}`)}
       >
         <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
       </IconButton>
