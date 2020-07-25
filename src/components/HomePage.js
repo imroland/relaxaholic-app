@@ -29,38 +29,37 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       quotes: [],
-      selectedQuoteIndex: null
+      randomCategory: "",
+      randomIndex: 0
     };
-    this.assignNewQuoteIndex = this.assignNewQuoteIndex.bind(this);
-    this.selectQuoteIndex = this.generateNewQuoteIndex.bind(this);
+    this.generateRandomizedIndex = this.generateRandomizedIndex.bind(this)
   }
 
   componentDidMount() {
-    fetch('https://gist.githubusercontent.com/awran5/355643af99164a61ae0f95c84206d151/raw/c62636e8eef7e73540fa04b67f753ca9b95ee21e/quotes-api.js')
+    fetch('https://api.npoint.io/6e5c60ffd68b29d8a666')
       .then(data => data.json())
-      .then(quotes => this.setState({ quotes }, this.assignNewQuoteIndex));
+      .then(quotesJSON => this.setState({ quotes: quotesJSON }))
+      .then(this.generateRandomizedIndex())
   }
 
-  get selectedQuote() {
-    if (!this.state.quotes.length || !Number.isInteger(this.state.selectedQuoteIndex)) {
+  get newQuote() {
+    if (this.state.quotes.length === 0) {
       return undefined;
-    }
-    return this.state.quotes[this.state.selectedQuoteIndex];
+    } else if (this.state.randomCategory.length > 0){
+      return this.state.quotes[this.state.randomCategory][this.state.randomIndex]
+    } else return undefined
   }
 
-  /**
-   * Returns an integer representing an index in state.quotes
-   * If state.quotes is empty, returns undefined
-   */
-  generateNewQuoteIndex() {
-    if (!this.state.quotes.length) {
-      return undefined;
-    }
-    return random(0, this.state.quotes.length - 1);
-  }
-
-  assignNewQuoteIndex() {
-    this.setState({ selectedQuoteIndex: this.generateNewQuoteIndex() });
+  generateRandomizedIndex() {
+    const _ = require("lodash")
+    const categories = ['Advice', 'Humor', 'Inspirational',
+      'Life', 'Love', 'People', 'Philosophy', 'Wisdom'];
+    const oneCategory = _.sample(categories)
+    const oneIndex = _.random(oneCategory.length - 1)
+    this.setState({
+      randomCategory: oneCategory,
+      randomIndex: oneIndex
+    })
   }
 
   render() {
@@ -87,12 +86,14 @@ class HomePage extends React.Component {
               </Typography>
             </Paper>
             {
-              this.selectedQuote ?
-                <QuoteCard selectedQuote={this.selectedQuote} /> :
+              this.newQuote ?
+                <QuoteCard
+                  description={this.newQuote.quotes_description}
+                  author={this.newQuote.quotes_author} /> :
                 null
             }
             <Paper>
-              <Button id="new-quote" size="small" onClick={this.assignNewQuoteIndex}>Generate Another Quote!</Button>
+              <Button id="new-quote" size="small" onClick={this.generateRandomizedIndex}>Generate Another Quote!</Button>
             </Paper>
           </Grid>
         </Grid>
