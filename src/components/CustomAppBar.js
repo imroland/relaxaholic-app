@@ -28,6 +28,11 @@ function CustomAppBar(props) {
   const handleNavQuotePage = () => {
     props.history.push("/motivational-quotes");
   }
+
+  const handleNavWorkoutPage = () => {
+    props.history.push("/workouts");
+  }
+
   return (
     <Fragment>
       <AppBar position="static">
@@ -38,6 +43,7 @@ function CustomAppBar(props) {
           <Typography>
             <Button onClick={handleNavHome} color="inherit">Home</Button>
             <Button onClick={handleNavQuotePage} color="inherit">Motivational Quotes</Button>
+            <Button onClick={handleNavWorkoutPage} color="inherit">workouts</Button>
           </Typography>
         </Toolbar>
       </AppBar>

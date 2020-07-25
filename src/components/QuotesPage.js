@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
-import { Grid, withStyles, Box } from '@material-ui/core';
-import CategorySelect from './CategorySelect';
+import { Grid, withStyles, Box,
+  Card, CardContent, CardActions, Typography } from '@material-ui/core';
+import QuoteCategory from './QuoteCategory';
 import QuoteCard from './QuoteCard';
 import Background from '../media/bg.jpg';
 
@@ -80,21 +81,31 @@ class QuotesPage extends Component {
       <Box className={this.props.classes.bg}>
         <Grid className={this.props.classes.container} id="quotes-page-intro" justify="center" container>
           <Grid xs={10} lg={8} item>
-            <CategorySelect handleCategoryChange={this.categorySwitch} />
+            <Card>
+              <CardContent>
+                <Typography>
+                  <h2>Welcome to the Quotes Page!</h2>
+                  <h3>Select Your Preferred Category:</h3>
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <QuoteCategory handleCategoryChange={this.categorySwitch} />
+              </CardActions>
+            </Card>
           </Grid>
         </Grid>
         {
-        
-        this.selectedQuoteCategory ?
-          this.selectedQuoteCategory.map(
-            quote => (
-              <Grid className={this.props.classes.container} id="quote-list" justify="center" container>
-                <Grid xs={10} lg={8} item>
-                  <QuoteCard selectedQuote={quote} />
+
+          this.selectedQuoteCategory ?
+            this.selectedQuoteCategory.map(
+              quote => (
+                <Grid className={this.props.classes.container} id="quote-list" justify="center" container>
+                  <Grid xs={10} lg={8} item>
+                    <QuoteCard selectedQuote={quote} />
+                  </Grid>
                 </Grid>
-              </Grid>
-            )
-          ) : null
+              )
+            ) : null
         }
       </Box>
     )
